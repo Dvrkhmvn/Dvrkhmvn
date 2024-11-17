@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emploi du Temps INFO L1</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        h1, h2, h4 {
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 30px;
+            color: #000;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        /* Menu principal */
+        #menu {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .menu-button, .day-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover, .day-button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
+        /* Liste des emplois du temps */
+        #list-menu {
+            display: none;
+            margin: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        .return-button {
+            margin: 10px;
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .return-button:hover {
+            background-color: #d32f2f;
+            transform: translateY(-3px);
+        }
+
+        /* Styles pour chaque emploi du temps */
+        .schedule {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: opacity 1s ease, height 1s ease;
+        }
+
+        .time-slot {
+            padding: 15px;
+            background-color: #e9f5e3;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .time-slot:hover {
+            transform: translateX(5px);
+        }
+
+        /* Liens */
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsivité */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .menu-button, .day-button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .schedule {
+                padding: 15px;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Emploi du Temps INFO L1</h1>
+        <h2>Section 1</h2>
+        <h4>!!Toute sorte de Copie de cette site peut vous risquer des très gros problèmes, voire même le disfonctionnement de votre appareil par des attaques que vous ignorez l'existence!!</h4>
+        <h4>GODIN HERMANN SYLVANO</h4>
+        <h4>Contact: 0347721472</h4>
+        <h4><a href="https://www.facebook.com/profile.php?id=100085245875935" target="_blank">Facebook (Her Man)</a></h4>
+    </header>
+
+    <!-- Menu principal -->
+    <div id="menu">
+        <button class="menu-button" onclick="showListMenu()">Liste des Emplois du Temps</button>
+    </div>
+
+    <!-- Menu Liste des emplois du temps -->
+    <div id="list-menu">
+        <button class="return-button" onclick="returnToMenu()">Retour au Menu Principal</button>
+        <h2>Liste des Emplois du Temps</h2>
+        <ul>
+            <li><button class="day-button" onclick="showSchedule('lundi')">Lundi</button></li>
+            <li><button class="day-button" onclick="showSchedule('mardi')">Mardi</button></li>
+            <li><button class="day-button" onclick="showSchedule('mercredi')">Mercredi</button></li>
+            <li><button class="day-button" onclick="showSchedule('jeudi')">Jeudi</button></li>
+            <li><button class="day-button" onclick="showSchedule('vendredi')">Vendredi</button></li>
+        </ul>
+    </div>
+
+    <!-- Matières pour chaque jour -->
+    <div id="lundi" class="schedule">
+        <h2>Lundi</h2>
+        <div class="time-slot">07h - 09h : Mr Ndimby</div>
+        <div class="time-slot">11h - 13h : Mme Odette</div>
+        <div class="time-slot">13h - 15h : Mr Ansèlme</div>
+        <div class="time-slot">15h - 17h : Mr Hélien</div>
+        <button class="return-button" onclick="backToListMenu()">Retour à la liste</button>
+    </div>
+
+    <div id="mardi" class="schedule">
+        <h2>Mardi</h2>
+        <div class="time-slot">9h - 11h : Mlle Koloina</div>
+        <div class="time-slot">11h - 13h : Mr Feno</div>
+        
+        <button class="return-button" onclick="backToListMenu()">Retour à la liste</button>
+    </div>
+
+    <div id="mercredi" class="schedule">
+        <h2>Mercredi</h2>
+        <div class="time-slot">7h - 9h : Mme Monique</div>
+        <div class="time-slot">9h - 11h : Mr Nirina</div>
+        <div class="time-slot">11h - 13h : Mr Claude Val(Groupe A)</div>
+        <button class="return-button" onclick="backToListMenu()">Retour à la liste</button>
+    </div>
+
+    <div id="jeudi" class="schedule">
+        <h2>Jeudi</h2>
+        <div class="time-slot">7h - 9h : Mr Soloniaina</div>
+        <div class="time-slot">9h - 11h : Mr Luc</div>
+        <div class="time-slot">11h - 13h : Mr Claude Val(Groupe B)</div>
+        <button class="return-button" onclick="backToListMenu()">Retour à la liste</button>
+    </div>
+
+    <div id="vendredi" class="schedule">
+        <h2>Vendredi</h2>
+        <div class="time-slot">9h - 11h : Mr Helien ou Mr Manda</div>
+        <div class="time-slot">11h - 13h : Mr Nomena</div>
+        
+        <button class="return-button" onclick="backToListMenu()">Retour à la liste</button>
+    </div>
+
+    <script>
+        // Afficher la liste des emplois du temps avec effet de fade-in
+        function showListMenu() {
+            document.getElementById('menu').style.display = 'none';
+            const listMenu = document.getElementById('list-menu');
+            listMenu.style.display = 'block';
+            setTimeout(() => listMenu.style.opacity = 1, 50);
+        }
+
+        // Afficher le planning d'un jour spécifique avec effet de glissement et fade-in
+        function showSchedule(day) {
+            var days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi'];
+            days.forEach(d => {
+                const schedule = document.getElementById(d);
+                schedule.style.opacity = 0;
+                schedule.style.height = '0';
+            });
+
+            const selectedSchedule = document.getElementById(day);
+            selectedSchedule.style.display = 'block';
+            setTimeout(() => {
+                selectedSchedule.style.opacity = 1;
+                selectedSchedule.style.height = 'auto';
+            }, 50);
+
+            document.getElementById('list-menu').style.display = 'none';
+        }
+
+        // Retourner au menu principal
+        function returnToMenu() {
+            document.getElementById('list-menu').style.display = 'none';
+            document.getElementById('menu').style.display = 'block';
+        }
+
+        // Retour à la liste des jours
+        function backToListMenu() {
+            var days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi'];
+            days.forEach(d => {
+                document.getElementById(d).style.display = 'none';
+            });
+            document.getElementById('list-menu').style.display = 'block';
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Copyright 2024-2025.</p>
+        <p>!!Ce site est developpé par HMVN. Ne copie pas!!</p>
+    </footer>
+</body>
+
+</html>
